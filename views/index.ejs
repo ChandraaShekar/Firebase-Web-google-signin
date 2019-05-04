@@ -4,10 +4,10 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />  
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
+        <%# <link rel="stylesheet" href="css/style.css" /> %>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
     <script>
       var firebaseConfig = {
         apiKey: "AIzaSyA_rt6-TJ8ql9YVoaKiFEtk87ZjiN1x3bc",
@@ -32,16 +32,24 @@
       </button>
       <script>
         function signInWithGoogle(){
-          var googleAuthProvider = new firebase.auth.GoogleAuthProvider
-
-          firebase.auth().signInWithPopup(googleAuthProvider)
-                  .then(funtion(data){
+            var googleAuthProvider = new firebase.auth.GoogleAuthProvider
+            
+            firebase.auth().signInWithPopup(googleAuthProvider)
+                .then( function(data) {
                     console.log(data)
-                  })
-                  .catch(function(error){
+                    // var photoURL = data.additionalUserInfo.profile.picture
+                    
+                    // var idToken = data.credential.idToken
+                    
+                    // document.getElementById('google-pic')
+                            // .setAttribute('src', photoURL)
+                            
+                    // checkIfLoggedIn()
+                })
+                .catch( function(error) {
                     console.log(error)
-                  })
-      
+                    // checkIfLoggedIn()
+                })
         }
       </script>
     </div>
