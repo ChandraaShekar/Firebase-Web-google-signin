@@ -3,9 +3,47 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />  
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyA_rt6-TJ8ql9YVoaKiFEtk87ZjiN1x3bc",
+        authDomain: "scrapto.firebaseapp.com",
+        databaseURL: "https://scrapto.firebaseio.com",
+        projectId: "scrapto",
+        storageBucket: "scrapto.appspot.com",
+        messagingSenderId: "244152573409",
+        appId: "1:244152573409:web:2dac5e1da3b7bbc9"
+      };
+      
+      firebase.initializeApp(firebaseConfig);
+    </script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <div>
+      <h1>Login</h1>
+      <button onclick={signInWithGoogle()}>
+        Signin With Google
+      </button>
+      <script>
+        function signInWithGoogle(){
+          var googleAuthProvider = new firebase.auth.GoogleAuthProvider
+
+          firebase.auth().signInWithPopup(googleAuthProvider)
+                  .then(funtion(data){
+                    console.log(data)
+                  })
+                  .catch(function(error){
+                    console.log(error)
+                  })
+      
+        }
+      </script>
+    </div>
   </body>
 </html>
