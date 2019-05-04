@@ -22,14 +22,29 @@
       firebase.initializeApp(firebaseConfig);
     </script>
   </head>
-  <body onmouseenter={signInWithGoogle()}>
+  <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <div>
       <h1>Login</h1>
-      <button onclick={signInWithGoogle()}>
-        Signin With Google
-      </button>
+      <h3 id="google-displayName"></h3>
+            <img id="google-pic" src="" />
+            <p id="google-email"></p>
+            <button 
+                class="btn btn-primary"
+                id="google-signin" 
+                onclick={signInWithGoogle()}
+            >
+                Sign In With Google
+            </button>
+            <button 
+                class="btn btn-"
+                id="signout" 
+                onclick={signOut()}
+                style="display: none; visibility: hidden;"
+            >
+                Sign Out
+            </button>
       <script>
         function signInWithGoogle(){
             var googleAuthProvider = new firebase.auth.GoogleAuthProvider
