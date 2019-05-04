@@ -45,28 +45,7 @@
             >
                 Sign Out
             </button>
-      <script>
-        function signInWithGoogle(){
-            var googleAuthProvider = new firebase.auth.GoogleAuthProvider
-            
-            firebase.auth().signInWithPopup(googleAuthProvider)
-                .then( function(data) {
-                    console.log(data)
-                    // var photoURL = data.additionalUserInfo.profile.picture
-                    
-                    // var idToken = data.credential.idToken
-                    
-                    // document.getElementById('google-pic')
-                            // .setAttribute('src', photoURL)
-                            
-                    // checkIfLoggedIn()
-                })
-                .catch( function(error) {
-                    console.log(error)
-                    // checkIfLoggedIn()
-                })
-        }
-      </script>
+      <script src="/js/firebaseAuth.js"></script>
     </div>
   </body>
 </html>
